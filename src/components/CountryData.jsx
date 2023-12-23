@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context";
 import { useQuery } from "@tanstack/react-query";
 import { customFetch } from "../utils/url";
-import error from "../images/error.svg"
+import errorImg from "../images/error.svg"
 
 const WeatherData = () => {
   const {searchTerm} = useGlobalContext()
@@ -17,8 +17,8 @@ const WeatherData = () => {
   if(response.isLoading) return <h1 className="text-white text-3xl font-bold">... Loading</h1>
 
   if(response.isError) return <div className="">
-    <h1 className="text-white text-3xl font-bold">Error, try again...</h1>;
-    <img className="w-36 h-36 mx-auto" src={error} alt="" />
+    <h1 className="text-white text-3xl font-bold">Can´t find country</h1>;
+    <img className="w-36 h-36 mx-auto" src={errorImg} alt="" />
   </div>
 
   const country = response.data[0]
